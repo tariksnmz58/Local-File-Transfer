@@ -55,16 +55,56 @@ Bilgisayarınızdan telefonunuza, telefonunuzdan bilgisayarınıza — **çift y
 
 ## 📸 Ekran Görüntüleri
 
+### Başlangıç Ekranı
 <p align="center">
-  <img src="assets/screenshot-desktop.png" alt="Masaüstü Uygulaması" width="80%">
-  <br>
-  <em>Masaüstü uygulaması — Dosya yönetimi, QR kod ve sunucu logları</em>
+  <img src="assets/screenshot-desktop.png" alt="Başlangıç Ekranı" width="90%">
 </p>
 
+> Uygulama ilk açıldığında bu ekranla karşılaşırsınız. Henüz dosya seçilmemiş ve sunucu başlatılmamış durumda.
+
+### Aktif Paylaşım Ekranı
+<p align="center">
+  <img src="assets/screenshot-active.png" alt="Aktif Paylaşım Ekranı" width="90%">
+</p>
+
+> Dosyalar seçilip sunucu başlatıldığında uygulama bu şekilde görünür. QR kod, PIN kodu ve sunucu adresi sağ panelde yer alır.
+
+### 🗺️ Arayüz Haritası
+
+Uygulamanın her bölümünü anlamanız için aşağıdaki açıklamaya bakın:
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│  📡 Dosya Paylaşım                              🟢 Çevrimiçi       │  ← Durum göstergesi
+├──────────────────────────────────────────┬───────────────────────────┤
+│                                          │                           │
+│  📁 Paylaşılan Dosyalar        3 dosya   │     ┌─────────────┐       │
+│  ┌──────────────────────────────────┐    │     │   QR KOD    │       │  ← Telefonla okutun
+│  │ Dosya Adı     │ Boyut  │ Durum   │    │     └─────────────┘       │
+│  │───────────────│────────│─────────│    │                           │
+│  │ rapor.pdf     │ 2.4 MB │ ✅      │    │     PIN KOD               │
+│  │ foto.jpg      │ 5.1 MB │ ⬇️      │    │     [ 4 ] [ 8 ] [ 2 ] [7]│  ← Telefona bu PINi girin
+│  │ kod.zip       │ 18 MB  │ ⏳      │    │                           │
+│  └──────────────────────────────────┘    │  http://192.168.1.42:8080 │  ← Veya bu adresi yazın
+│                                          │                           │
+│  ⬆️ Yüklenen Dosyalar              📂    │  ┌─────────────────────┐  │
+│  ┌──────────────────────────────────┐    │  │  📁 Dosyaları Seç   │  │  ← 1. ADIM: Buraya tıkla
+│  │ telefon-video.mp4 - 45.2 MB      │    │  │  🌐 Ağda Paylaş    │  │  ← 2. ADIM: Buraya tıkla
+│  └──────────────────────────────────┘    │  │  🔄 Sistemi Temizle │  │  ← Bitince buraya tıkla
+│                                          │  └─────────────────────┘  │
+├──────────────────────────────────────────┴───────────────────────────┤
+│  💻 Sunucu Logları                                               🗑️ │
+│  🚀 Sunucu başlatıldı: http://192.168.1.42:8080                     │  ← Tüm işlemler burada
+│  🔒 PIN Kodu: 4827                                                  │    anlık takip edilir
+│  ⬇️ [192.168.1.42] indiriyor: rapor.pdf                             │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### Mobil Web Arayüzü
 <p align="center">
   <img src="assets/screenshot-mobile.png" alt="Mobil Web Arayüzü" width="300">
   <br>
-  <em>Mobil web arayüzü — PIN girişi ve dosya indirme/yükleme</em>
+  <em>Telefonunuzun tarayıcısında açılan PIN giriş ekranı</em>
 </p>
 
 ---
