@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dosya Paylaşım — Yerel Ağ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ─── Arka plan efektleri ─── -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- ─── Üst başlık ─── -->
+    <header class="app-header">
+        <div class="header-left">
+            <div class="app-logo">
+                <span class="logo-emoji">📡</span>
+            </div>
+            <div>
+                <h1 class="app-title">Dosya Paylaşım</h1>
+                <p class="app-subtitle">Yerel Ağda Çift Yönlü Aktarım</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="status-indicator" id="statusDot">
+                <span class="dot offline"></span>
+                <span class="status-text" id="statusText">Çevrimdışı</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ─── Ana içerik ─── -->
+    <main class="main-content">
+        <!-- Sol panel: Dosyalar + Kontroller -->
+        <section class="panel panel-left">
+            <!-- Paylaşılan dosyalar tablosu -->
+            <div class="card card-files">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-icon">📁</span>
+                        <h2>Paylaşılan Dosyalar</h2>
+                    </div>
+                    <span class="file-count" id="fileCount">0 dosya</span>
+                </div>
+                <div class="table-wrapper" id="tableWrapper">
+                    <div class="empty-table" id="emptyTable">
+                        <span class="empty-icon">📂</span>
+                        <p>Henüz dosya seçilmedi</p>
+                        <p class="empty-hint">Aşağıdaki butonla dosya seçebilirsiniz</p>
+                    </div>
+                    <table class="file-table" id="fileTable" style="display:none;">
+                        <thead>
+                            <tr>
+                                <th>Dosya Adı</th>
+                                <th>Boyut</th>
+                                <th>Durum</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fileTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Yüklenen dosyalar -->
+            <div class="card card-uploads">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-icon">⬆️</span>
+                        <h2>Yüklenen Dosyalar</h2>
+                    </div>
+                    <button class="btn-icon" id="btnOpenFolder" title="Klasörü Aç">
+                        📂
+                    </button>
+                </div>
+                <div class="upload-list" id="uploadList">
+                    <div class="empty-table" id="emptyUploads">
+                        <span class="empty-icon">☁️</span>
+                        <p>Henüz dosya yüklenmedi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sağ panel: QR + PIN + Butonlar -->
+        <section class="panel panel-right">
+            <!-- QR Kod kartı -->
+            <div class="card card-qr">
+                <div class="qr-container" id="qrContainer">
+                    <div class="qr-placeholder" id="qrPlaceholder">
+                        <span>📱</span>
+                        <p>QR Kod</p>
+                    </div>
+                    <img id="qrImage" class="qr-image" style="display:none;" alt="QR Kod">
+                </div>
+                <div class="pin-display">
+                    <span class="pin-label">PIN KOD</span>
+                    <span class="pin-value" id="pinValue">- - - -</span>
+                </div>
+                <div class="address-display" id="addressDisplay" style="display:none;">
+                    <span class="address-text" id="addressText"></span>
+                </div>
+            </div>
+
+            <!-- Butonlar -->
+            <div class="action-buttons">
+                <button class="btn btn-select" id="btnSelectFiles">
+                    <span class="btn-icon-left">📁</span>
+                    Dosyaları Seç
+                </button>
+                <button class="btn btn-share" id="btnShare" disabled>
+                    <span class="btn-icon-left">🌐</span>
+                    Ağda Paylaş
+                </button>
+                <button class="btn btn-reset" id="btnReset">
+                    <span class="btn-icon-left">🔄</span>
+                    Sistemi Temizle
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- ─── Log ekranı ─── -->
+    <section class="card card-log">
+        <div class="card-header">
+            <div class="card-title">
+                <span class="card-icon">💻</span>
+                <h2>Sunucu Logları</h2>
+            </div>
+            <div class="log-actions">
+                <button class="btn-icon" id="btnClearLog" title="Logları Temizle">🗑️</button>
+            </div>
+        </div>
+        <div class="log-terminal" id="logTerminal">
+            <div class="log-line"><span class="log-time">[Sistem]</span> Hazır. Dosya seçimi bekleniyor...</div>
+        </div>
+    </section>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

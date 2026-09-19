@@ -1,0 +1,44 @@
+{
+  "name": "dosya-paylasim",
+  "version": "1.0.0",
+  "description": "Yerel Ağ Dosya Paylaşım Uygulaması - Çift Yönlü",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "keywords": [],
+  "author": "Tarık Sönmez",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "electron": "^43.2.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.sonme.dosyapaylasim",
+    "productName": "Dosya Paylaşım",
+    "win": {
+      "icon": "assets/icon.png",
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "asar": true,
+    "files": [
+      "**/*",
+      "!node_modules/.cache/**"
+    ],
+    "extraResources": [
+      {
+        "from": "assets/",
+        "to": "assets/"
+      }
+    ]
+  }
+}
